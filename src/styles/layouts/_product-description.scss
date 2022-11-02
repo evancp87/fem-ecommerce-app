@@ -1,0 +1,67 @@
+@use "../abstracts/" as a;
+
+.product-desc {
+  flex: 2;
+  margin-left: 2em;
+  .product-desc__company-heading {
+    color: a.$orange;
+    font-size: a.$rg-heading-font;
+    margin-bottom: 1em;
+    + .product_desc__product-heading {
+      color: a.$black-text;
+      font-size: a.$lg-heading-font-mobile;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.product-details {
+  @include a.flexbox-config($flex-direction: row);
+  margin-bottom: 1em;
+  @include a.sm-tablets {
+    flex-direction: column;
+  }
+}
+.product-desc__blurb {
+  font-size: a.$rg-font;
+  margin: 1em 0;
+  max-width: 80%;
+  font-weight: 400;
+  color: a.$light-gray;
+}
+
+.product-desc__price {
+  @include a.flexbox-config($flex-direction: row);
+  margin-bottom: 1em;
+
+  .product-desc__price-item:first-child {
+    font-weight: bold;
+    color: a.$black-text;
+    font-size: a.$lg-heading;
+  }
+
+  .product-desc__price-item:last-child {
+    color: a.$orange;
+    background-color: #ffeee2;
+    opacity: 0.5;
+    padding: 0.5em;
+    font-size: a.$rg-font;
+    margin-left: 1em;
+  }
+}
+
+.product-desc__sale {
+  > * {
+    text-decoration: line-through;
+    color: a.$light-gray-two;
+    font-size: a.$rg-font;
+    font-weight: bold;
+  }
+}
+
+.product-desc__pay {
+  @include a.flexbox-config($flex-direction: column);
+  @include a.sm-tablets {
+    flex-direction: row;
+  }
+}

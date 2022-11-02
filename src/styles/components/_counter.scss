@@ -1,0 +1,18 @@
+@use "../abstracts" as a;
+
+.counter {
+  flex: 1 1 30%;
+  .counter__btn {
+    max-width: 100%;
+    border: none;
+    width: 100%;
+    @include a.flexbox-config(
+      $flex-direction: row,
+      $justify-content: space-around
+    );
+    padding: 0.4em 0.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: a.$counter;
+  }
+}

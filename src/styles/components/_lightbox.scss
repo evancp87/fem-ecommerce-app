@@ -1,0 +1,49 @@
+@use "../abstracts" as *;
+
+.lightbox__thumbnails {
+  @include flexbox-config($flex-direction: row, $flex: 1 0 auto);
+  margin: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.thumbnail-img {
+  max-width: 100px;
+  width: 88px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    border: 3px solid $orange;
+    opacity: 0.5;
+  }
+}
+
+.lightbox__modal {
+  position: relative;
+
+  .lightbox__modal-prev,
+  .lightbox__modal-next {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 1em;
+
+    &:hover {
+      background-color: $orange;
+    }
+  }
+
+  .lightbox__modal-img {
+    object-fit: contain;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+}

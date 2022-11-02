@@ -1,0 +1,43 @@
+@use "../abstracts" as *;
+
+.cart-wrapper {
+  position: relative;
+  .cart {
+    @include flexbox-config($flex-direction: row);
+    // visibility: hidden;
+    // position: absolute;
+    // z-index: 100;
+    // top: 0;
+    // max-width: 360px;
+    // height: auto;
+    // translate: 20px 0;
+    // opacity: 0;
+    // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    width: 360px;
+    height: 256px;
+    position: absolute;
+    z-index: 400;
+    top: 101%;
+    left: 70%;
+    border: 1px solid black;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 1px 14px 21px 1px rgb(179 172 179);
+
+    .cart_heading {
+      border-bottom: 1px solid black;
+      padding-bottom: 1em;
+
+      + .cart-content {
+        padding-top: 1em;
+      }
+    }
+  }
+}
+.cart.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+// empty cart
+
+// cart with item

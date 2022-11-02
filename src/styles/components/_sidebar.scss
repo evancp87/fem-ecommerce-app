@@ -1,0 +1,14 @@
+@use "../abstracts" as *;
+
+.sidebar {
+  width: 70vw;
+  min-height: 100vh;
+  position: relative;
+  z-index: 500;
+  padding: 5rem 0 0 1rem;
+  left: -100%;
+
+  @include sm-tablets {
+    display: none;
+  }
+}

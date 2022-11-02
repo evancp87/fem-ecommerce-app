@@ -1,0 +1,11 @@
+@use "../abstracts/" as a;
+
+.product-page {
+  @include a.flexbox-config($flex-direction: column);
+  max-width: 800px;
+  margin-top: 4em;
+
+  @include a.sm-tablets {
+    @include a.flexbox-config($flex-direction: row, $align-items: flex-end);
+  }
+}
