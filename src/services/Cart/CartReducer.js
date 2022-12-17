@@ -31,7 +31,7 @@ const cartReducer = (state, action) => {
       if (!item) {
         state.items.push({
           ...action.payload,
-          quantity: 1,
+          quantity: state.count,
         });
       } else {
         return {
@@ -40,7 +40,8 @@ const cartReducer = (state, action) => {
             item.id === action.payload.id
               ? {
                   ...item,
-                  quantity: item.quantity++,
+                  ...state,
+                  quantity: state.count + state.count,
                 }
               : item
           ),
