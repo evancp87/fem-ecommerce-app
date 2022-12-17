@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import EmptyCart from "./EmptyCart";
-// import FilledCart from "./FilledCart";
+import FilledCart from "./FilledCart";
+import CartContext from "../services/Cart/CartContext";
 
-function Cart() {
+function Cart({ products }) {
+  const { items } = useContext(CartContext);
   return (
-    <div className="cart">
-      <h2 className="cart_heading"></h2>
-      <EmptyCart />
-      {/* {items.length === 0 ? <EmptyCart /> : <FilledCart />} */}
+    <div>
+      <h2 className="cart_heading">Cart</h2>
+      {items.length > 0 ? <FilledCart products={products} /> : <EmptyCart />}
     </div>
   );
 }

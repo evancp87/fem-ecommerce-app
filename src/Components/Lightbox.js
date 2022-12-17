@@ -3,6 +3,20 @@ const lightboxThumbnailImg = require("../assets/images/image-product-1-thumbnail
 const lightboxThumbnailImgTwo = require("../assets/images/image-product-2-thumbnail.jpg");
 const lightboxThumbnailImgThree = require("../assets/images/image-product-3-thumbnail.jpg");
 const lightboxThumbnailImgFour = require("../assets/images/image-product-4-thumbnail.jpg");
+const prev = require("../assets/images/icon-previous.svg").default;
+const next = require("../assets/images/icon-next.svg").default;
+const closeMenu = require("../assets/images/icon-close.svg").default;
+// const lightboxImg = require("../assets/images/image-product-1.jpg");
+// const lightboxImgTwo = require("../assets/images/image-product-2.jpg");
+// const lightboxImgThree = require("../assets/images/image-product-3.jpg");
+// const lightboxImgFour = require("../assets/images/image-product-4.jpg");
+
+// const imagesArr = [
+//   lightboxImg,
+//   lightboxImgTwo,
+//   lightboxImgThree,
+//   lightboxImgFour,
+// ];
 
 const thumbnailImagesArr = [
   lightboxThumbnailImg,
@@ -14,7 +28,7 @@ const thumbnailImagesArr = [
 function Lightbox() {
   const [lightboxDisplay, setLightboxDisplay] = useState(false);
   const [imageToShow, setImageToShow] = useState("");
-  // const [mainImage, setMainImageToShow] = "";
+  const [mainImage, setMainImageToShow] = useState("");
 
   const defaultImg = (image) => {
     useEffect(() => {
@@ -28,7 +42,7 @@ function Lightbox() {
     setLightboxDisplay(true);
   };
 
-  // showMainImage = (image) => {
+  // const showMainImage = (image) => {
   //   setMainImageToShow(image);
   //   setLightboxDisplay(true);
   // };
@@ -57,6 +71,24 @@ function Lightbox() {
             className="lightbox__modal-img"
             src={imageToShow}
           />
+          <img
+            className="lightbox__modal-close-menu"
+            src={closeMenu}
+            onClick={hideLightbox}
+          />
+          <img
+            src={prev}
+            alt="prev btn"
+            // onClick={showPrev}
+            className="slider__gallery-item-prev"
+          />
+          <img
+            src={next}
+            alt="next btn"
+            // onClick={showNext}
+            className="slider__gallery-item-next"
+          />
+          <img />
         </div>
       ) : (
         ""

@@ -15,6 +15,13 @@ function App() {
           <Route path="/" element={<ProductPage />}></Route>
         </Routes>
       </Router>
+      <div className="attribution">
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io?ref=challenge">
+          Frontend Mentor
+        </a>
+        . Coded by <a href="#">Evan Parker</a>.
+      </div>
     </div>
   );
 }

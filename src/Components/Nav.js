@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Avatar from "./Avatar";
 import Cart from "./Cart";
+import CartContext from "../services/Cart/CartContext";
 
 function Nav() {
   const [cartIsActive, setCartIsActive] = useState(false);
@@ -9,6 +10,8 @@ function Nav() {
     setCartIsActive(!cartIsActive);
   };
 
+  const { items, sumItems } = useContext(CartContext);
+  // const { quantity } = items[0];
   return (
     <div className="navigation">
       <div className="navigation__first-section">
@@ -47,10 +50,15 @@ function Nav() {
             alt="cart icon"
             onClick={openCart}
           />
-          <Cart />
+          {items.length > 0 && (
+            <div className="cart-wrapper__item-count">{items[0].quantity}</div>
+          )}
+          <div className={cartIsActive ? "cart active" : "cart"}>
+            <Cart />
+          </div>
         </li>
         <li className="cart-wrapper__item-avatar">
-          <div className={`${cartIsActive} ? "active" : "inactive"`}>
+          <div>
             <Avatar />
           </div>
         </li>

@@ -1,5 +1,10 @@
 @use "../abstracts" as *;
 
+.lightbox {
+  @include sm-tablets-max-width {
+    display: none;
+  }
+}
 .lightbox__thumbnails {
   @include flexbox-config($flex-direction: row, $flex: 1 0 auto);
   margin: 0;
@@ -17,7 +22,8 @@
   border-radius: 10px;
   cursor: pointer;
   &:hover {
-    border: 3px solid $orange;
+    outline-style: solid;
+    outline-color: $orange;
     opacity: 0.5;
   }
 }
@@ -45,5 +51,24 @@
     width: 100%;
     height: auto;
     border-radius: 10px;
+    position: absolute;
+    top: -250px;
+    left: 50%;
+    z-index: 1000;
   }
 }
+
+.lightbox__modal-close-menu {
+  &:hover {
+    filter: invert(60%) sepia(30%) saturate(4954%) hue-rotate(347deg)
+      brightness(103%) contrast(101%);
+    cursor: pointer;
+  }
+}
+// lightboc main images .lightbox__modal-img {
+//   object-fit: contain;
+//   max-width: 100%;
+//   width: 100%;
+//   height: auto;
+//   border-radius: 10px;
+// }

@@ -64,10 +64,27 @@
 
 .cart-wrapper {
   @include a.flexbox-config($flex-direction: row, $align-items: center);
+  position: relative;
   > * {
     cursor: pointer;
   }
   .cart-wrapper__item {
     margin-right: 2em;
+    position: relative;
+  }
+  .cart-wrapper__item-count {
+    background-color: orange;
+    width: 25px;
+    position: absolute;
+    height: 20px;
+    top: -52%;
+    right: -63%;
+    color: white;
+    border-radius: 42%;
+    display: flex;
+    z-index: 300;
+    padding: 0.4em;
+    align-items: center;
+    justify-content: center;
   }
 }

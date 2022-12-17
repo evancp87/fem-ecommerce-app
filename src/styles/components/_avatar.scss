@@ -1,7 +1,14 @@
+@use "../abstracts/" as *;
+
 .avatar {
   .avatar__img {
     max-width: 50px;
     height: auto;
     display: block;
+    &:hover {
+      outline-style: solid;
+      outline-color: $orange;
+      border-radius: 50%;
+    }
   }
 }

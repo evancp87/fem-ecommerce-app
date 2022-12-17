@@ -121,3 +121,42 @@
     @content;
   }
 }
+
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin abs-position($top: false, $right: false, $bottom: false, $left: false) {
+  position: absolute;
+
+  @if $top != false {
+    top: $top;
+  }
+
+  @if $right != false {
+    right: $right;
+  }
+
+  @if $bottom != false {
+    bottom: $bottom;
+  }
+
+  @if $left != false {
+    left: $left;
+  }
+  // top: $top;
+  // right: $right;
+  // bottom: $bottom;
+  // left: $left;
+}
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

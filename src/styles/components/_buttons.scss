@@ -32,3 +32,28 @@
     }
   }
 }
+
+.checkout {
+  max-width: 100%;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0 1.6em;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  .checkout__btn {
+    @extend %btn;
+    @include flexbox-config(
+      $flex-direction: row,
+      $justify-content: space-around
+    );
+    border: none;
+    border-radius: 5px;
+    max-width: 100%;
+    width: 100%;
+    padding: 0.4em 0.2em;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      background-color: scale-color($orange, $lightness: +30%);
+    }
+  }
+}

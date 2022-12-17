@@ -1,6 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 import AddToCartBtn from "./AddToCartBtn";
+import { products } from "../data";
 
 function ProductDescription() {
   return (
@@ -26,15 +27,8 @@ function ProductDescription() {
       </div>
 
       <div className="product-desc__pay">
-        <Counter />
-        <AddToCartBtn />
-      </div>
-      <div className="attribution">
-        Challenge by{" "}
-        <a href="https://www.frontendmentor.io?ref=challenge">
-          Frontend Mentor
-        </a>
-        . Coded by <a href="#">Evan Parker</a>.
+        <Counter products={products} />
+        <AddToCartBtn products={products} />
       </div>
     </div>
   );

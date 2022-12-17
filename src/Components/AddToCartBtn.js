@@ -1,10 +1,15 @@
 /* eslint-disable react/jsx-filename-extension */
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../services/Cart/CartContext";
 
-function AddToCartBtn() {
+function AddToCartBtn({ products }) {
+  const { addToCart, count } = useContext(CartContext);
   return (
     <div className="add-to-cart">
-      <button className="add-to-cart__btn">
+      <button
+        className="add-to-cart__btn"
+        onClick={() => addToCart(products[0])}
+      >
         <img
           src={require("../assets/images/icon-cart.svg").default}
           alt="cart"
