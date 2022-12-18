@@ -4,6 +4,7 @@
   @include sm-tablets-max-width {
     display: none;
   }
+  flex: 1;
 }
 .lightbox__thumbnails {
   @include flexbox-config($flex-direction: row, $flex: 1 0 auto);
@@ -58,6 +59,17 @@
   }
 }
 
+.lightbox__main-img {
+  object-fit: contain;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .lightbox__modal-close-menu {
   &:hover {
     filter: invert(60%) sepia(30%) saturate(4954%) hue-rotate(347deg)
@@ -65,10 +77,3 @@
     cursor: pointer;
   }
 }
-// lightboc main images .lightbox__modal-img {
-//   object-fit: contain;
-//   max-width: 100%;
-//   width: 100%;
-//   height: auto;
-//   border-radius: 10px;
-// }

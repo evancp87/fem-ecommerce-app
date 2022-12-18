@@ -450,6 +450,9 @@ main {
   background-color: #f6f8fd;
 }
 
+.lightbox {
+  flex: 1;
+}
 @media (max-width: 599px) {
   .lightbox {
     display: none;
@@ -507,6 +510,17 @@ main {
   top: -250px;
   left: 50%;
   z-index: 1000;
+}
+
+.lightbox__main-img {
+  object-fit: contain;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.lightbox__main-img:hover {
+  cursor: pointer;
 }
 
 .lightbox__modal-close-menu:hover {

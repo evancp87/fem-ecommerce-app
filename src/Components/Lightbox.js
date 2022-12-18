@@ -6,61 +6,61 @@ const lightboxThumbnailImgFour = require("../assets/images/image-product-4-thumb
 const prev = require("../assets/images/icon-previous.svg").default;
 const next = require("../assets/images/icon-next.svg").default;
 const closeMenu = require("../assets/images/icon-close.svg").default;
-// const lightboxImg = require("../assets/images/image-product-1.jpg");
-// const lightboxImgTwo = require("../assets/images/image-product-2.jpg");
-// const lightboxImgThree = require("../assets/images/image-product-3.jpg");
-// const lightboxImgFour = require("../assets/images/image-product-4.jpg");
+const lightboxImg = require("../assets/images/image-product-1.jpg");
+const lightboxImgTwo = require("../assets/images/image-product-2.jpg");
+const lightboxImgThree = require("../assets/images/image-product-3.jpg");
+const lightboxImgFour = require("../assets/images/image-product-4.jpg");
 
-// const imagesArr = [
-//   lightboxImg,
-//   lightboxImgTwo,
-//   lightboxImgThree,
-//   lightboxImgFour,
-// ];
-
-const thumbnailImagesArr = [
-  lightboxThumbnailImg,
-  lightboxThumbnailImgTwo,
-  lightboxThumbnailImgThree,
-  lightboxThumbnailImgFour,
+const lightboxImgData = [
+  { thumbnail: lightboxThumbnailImg, larger: lightboxImg },
+  { thumbnail: lightboxThumbnailImgTwo, larger: lightboxImgTwo },
+  { thumbnail: lightboxThumbnailImgThree, larger: lightboxImgThree },
+  { thumbnail: lightboxThumbnailImgFour, larger: lightboxImgFour },
 ];
 
 function Lightbox() {
   const [lightboxDisplay, setLightboxDisplay] = useState(false);
   const [imageToShow, setImageToShow] = useState("");
-  const [mainImage, setMainImageToShow] = useState("");
+  const [currentImage, setCurrentImage] = useState(null);
 
-  const defaultImg = (image) => {
-    useEffect(() => {
-      setImageToShow(image);
-      setLightboxDisplay(true);
-    });
-  };
+  useEffect(() => {
+    setCurrentImage(lightboxImgData[0].larger);
+  }, []);
 
   const showImage = (image) => {
     setImageToShow(image);
     setLightboxDisplay(true);
   };
 
-  // const showMainImage = (image) => {
-  //   setMainImageToShow(image);
-  //   setLightboxDisplay(true);
-  // };
-
   const hideLightbox = () => {
     setLightboxDisplay(false);
   };
 
-  const thumbnails = thumbnailImagesArr.map((image, index) => (
-    <img
-      key={index}
-      onClick={() => {
-        showImage(image);
-      }}
-      src={image}
-      className="thumbnail-img"
-    />
-  ));
+  // const largerImages = lightboxImgData.map((image, index) => {
+  //   <img
+  //     key={index}
+  //     onClick={() => {
+  //       showImage(() => image.larger);
+  //     }}
+  //     src={image.larger}
+  //     className="lightbox__main-img"
+  //   />;
+  // });
+
+  // const handleMainImage = (image) => {
+  //   setImageToShow(image);
+  // };
+
+  // const mainImage = lightboxImgData.map((image, index) => (
+  //   <img
+  //     key={index}
+  //     onClick={() => {
+  //       showImage(image.larger);
+  //     }}
+  //     src={image.larger}
+  //     className="lightbox__main-img"
+  //   />
+  // ));
 
   return (
     <div className="lightbox">
@@ -93,8 +93,30 @@ function Lightbox() {
       ) : (
         ""
       )}
-      {defaultImg}
-      <div className="lightbox__thumbnails">{thumbnails}</div>
+      {/* {mainImage} */}
+
+      {currentImage && (
+        <img
+          src={currentImage}
+          onClick={(image) => {
+            showImage(image.larger);
+          }}
+          className="lightbox__main-img"
+          alt="large"
+        />
+      )}
+      <div className="lightbox__thumbnails">
+        {lightboxImgData.map((image, index) => (
+          <img
+            key={index}
+            onClick={() => {
+              setCurrentImage(image.larger);
+            }}
+            src={image.thumbnail}
+            className="thumbnail-img"
+          />
+        ))}
+      </div>
     </div>
   );
 }

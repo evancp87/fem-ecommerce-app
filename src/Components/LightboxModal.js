@@ -17,17 +17,32 @@ const lightboxThumbnailImgFour = require("../assets/images/image-product-4-thumb
 //   lightboxImgFour,
 // ];
 
-const thumbnailImages = [
-  lightboxThumbnailImg,
-  lightboxThumbnailImgTwo,
-  lightboxThumbnailImgThree,
-  lightboxThumbnailImgFour,
-];
+// const thumbnailImages = [
+//   lightboxThumbnailImg,
+//   lightboxThumbnailImgTwo,
+//   lightboxThumbnailImgThree,
+//   lightboxThumbnailImgFour,
+// ];
+
+const lightboxObj = {
+  lightboxImages: [
+    lightboxImg,
+    lightboxImgTwo,
+    lightboxImgThree,
+    lightboxImgFour,
+  ],
+  thumbnailImages: [
+    lightboxThumbnailImg,
+    lightboxThumbnailImgTwo,
+    lightboxThumbnailImgThree,
+    lightboxThumbnailImgFour,
+  ],
+};
 
 function LightboxModal() {
   return (
     <div>
-      {thumbnailImages.map((thumbnail) => {
+      {Object.keys(lightboxObj.thumbnailImages).map((thumbnail) => {
         <img src={thumbnail} className="thumbnail-img" />;
       })}
     </div>
