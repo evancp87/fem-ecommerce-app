@@ -1,8 +1,8 @@
 import {
   ADD_TO_CART,
   REMOVE_ITEM,
-  DECREASE,
-  INCREASE,
+  // DECREASE,
+  // INCREASE,
   DECREMENT,
   INCREMENT,
   CLEAR,
@@ -40,8 +40,7 @@ const cartReducer = (state, action) => {
             item.id === action.payload.id
               ? {
                   ...item,
-                  ...state,
-                  quantity: state.count + state.count,
+                  quantity: state.count,
                 }
               : item
           ),
@@ -58,32 +57,33 @@ const cartReducer = (state, action) => {
     case REMOVE_ITEM:
       return {
         ...state,
+        count: state.count,
         ...sumItems(
           state.items.filter((item) => item.id !== action.payload.id)
         ),
         items: [...state.items.filter((item) => item.id !== action.payload.id)],
       };
 
-    case DECREASE:
-      state.items[
-        state.items.findIndex((item) => item.id === action.payload.id)
-      ].quantity--;
+    // case DECREASE:
+    //   state.items[
+    //     state.items.findIndex((item) => item.id === action.payload.id)
+    //   ].quantity--;
 
-      return {
-        ...state,
-        ...sumItems(state.items),
-        items: [...state.items],
-      };
+    //   return {
+    //     ...state,
+    //     ...sumItems(state.items),
+    //     items: [...state.items],
+    //   };
 
-    case INCREASE:
-      state.items[
-        state.items.findIndex((item) => item.id === action.payload.id)
-      ].quantity++;
-      return {
-        ...state,
-        ...sumItems(state.items),
-        items: [...state.items],
-      };
+    // case INCREASE:
+    //   state.items[
+    //     state.items.findIndex((item) => item.id === action.payload.id)
+    //   ].quantity++;
+    //   return {
+    //     ...state,
+    //     ...sumItems(state.items),
+    //     items: [...state.items],
+    //   };
 
     case CLEAR:
       return {
