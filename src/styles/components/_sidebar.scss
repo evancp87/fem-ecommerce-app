@@ -2,13 +2,27 @@
 
 .sidebar {
   width: 70vw;
-  min-height: 100vh;
-  position: relative;
-  z-index: 500;
+  min-height: 200vh;
+  position: absolute;
+  z-index: 1500;
   padding: 5rem 0 0 1rem;
   left: -100%;
+  transition: ease-in-out 0.4s;
+  background-color: $white;
 
   @include sm-tablets {
     display: none;
   }
+  .sidebar__nav {
+    .sidebar__nav-item {
+      color: $black-text;
+      font-size: $sidebar;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.sidebar.active {
+  left: 0;
+  background: $white;
 }
