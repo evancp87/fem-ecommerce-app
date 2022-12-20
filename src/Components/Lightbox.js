@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import classnames from "classnames";
 const lightboxThumbnailImg = require("../assets/images/image-product-1-thumbnail.jpg");
 const lightboxThumbnailImgTwo = require("../assets/images/image-product-2-thumbnail.jpg");
 const lightboxThumbnailImgThree = require("../assets/images/image-product-3-thumbnail.jpg");
@@ -22,9 +23,13 @@ function Lightbox() {
   const [lightboxDisplay, setLightboxDisplay] = useState(false);
   const [imageToShow, setImageToShow] = useState("");
   const [currentImage, setCurrentImage] = useState(null);
+  const [isActive, setIsActive] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useEffect(() => {
     setCurrentImage(lightboxImgData[0].larger);
+    setIsActive(lightboxImgData[0].thumbnail);
+    // sets active thumbnail with lightboxImgdata[0].thumbnail with  hover status css- short circuit-
   }, []);
 
   const showImage = (image) => {
@@ -36,36 +41,38 @@ function Lightbox() {
     setLightboxDisplay(false);
   };
 
-  // const largerImages = lightboxImgData.map((image, index) => {
-  //   <img
-  //     key={index}
-  //     onClick={() => {
-  //       showImage(() => image.larger);
-  //     }}
-  //     src={image.larger}
-  //     className="lightbox__main-img"
-  //   />;
-  // });
+  const showNext = (e) => {
+    e.stopPropagation();
+    let currentIndex = lightboxImgData.indexOf(imageToShow);
+    if (currentIndex >= lightboxImgData.length - 1) {
+      setLightboxDisplay(false);
+    } else {
+      let nextImage = lightboxImgData[currentIndex + 1];
+      setImageToShow(nextImage);
+    }
+  };
 
-  // const handleMainImage = (image) => {
-  //   setImageToShow(image);
+  const showPrev = (e) => {
+    e.stopPropagation();
+    let currentIndex = lightboxImgData.indexOf(imageToShow);
+    if (currentIndex <= 0) {
+      setLightboxDisplay(false);
+    } else {
+      let nextImage = lightboxImgData.larger[currentIndex - 1];
+      setImageToShow(nextImage.larger);
+    }
+  };
+
+  // const handleOpenMainImage = (image) => {
+  //   setCurrentImage(image.larger);
+
+  //   setIsActive(!isActive);
   // };
-
-  // const mainImage = lightboxImgData.map((image, index) => (
-  //   <img
-  //     key={index}
-  //     onClick={() => {
-  //       showImage(image.larger);
-  //     }}
-  //     src={image.larger}
-  //     className="lightbox__main-img"
-  //   />
-  // ));
 
   return (
     <div className="lightbox">
       {lightboxDisplay ? (
-        <div id="lightbox" onClick={hideLightbox} className="lightbox__modal">
+        <div id="lightbox" className="lightbox__modal">
           <img
             id="lightbox-img"
             className="lightbox__modal-img"
@@ -79,28 +86,47 @@ function Lightbox() {
           <img
             src={prev}
             alt="prev btn"
-            // onClick={showPrev}
+            onClick={showPrev}
             className="slider__gallery-item-prev"
           />
           <img
             src={next}
             alt="next btn"
-            // onClick={showNext}
+            onClick={showNext}
             className="slider__gallery-item-next"
           />
-          <img />
+          <div className="lightbox__thumbnails-modal ">
+            {lightboxImgData.map((image, index) => (
+              <img
+                key={index}
+                onClick={() => {
+                  showImage(image.larger);
+                  setIsActive(!isActive);
+                  setActiveIndex(index);
+
+                  // sets active thumbnail with lightboxImgdata[0].thumbnail with  hover status css- short circuit-
+                }}
+                // onClick={() => setIsActive(!isActive)}
+                src={image.thumbnail}
+                className={classnames("thumbnail-img", {
+                  active: isActive && activeIndex === index,
+                })}
+                // className={isActive ? "thumbnail-img active" : "thumbnail-img"}
+              />
+            ))}
+          </div>
         </div>
       ) : (
         ""
       )}
-      {/* {mainImage} */}
 
       {currentImage && (
         <img
           src={currentImage}
-          onClick={(image) => {
-            showImage(image.larger);
+          onClick={() => {
+            showImage(currentImage);
           }}
+          // thumbnails={thumbnails}
           className="lightbox__main-img"
           alt="large"
         />
@@ -111,9 +137,10 @@ function Lightbox() {
             key={index}
             onClick={() => {
               setCurrentImage(image.larger);
+              setIsActive(!isActive);
             }}
             src={image.thumbnail}
-            className="thumbnail-img"
+            className={classnames("thumbnail-img", { active: !isActive })}
           />
         ))}
       </div>
