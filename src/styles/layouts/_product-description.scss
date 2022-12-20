@@ -2,7 +2,10 @@
 
 .product-desc {
   flex: 2;
-  margin-left: 2em;
+  margin: {
+    left: 2em;
+    top: 2em;
+  }
   .product-desc__company-heading {
     color: a.$orange;
     font-size: a.$rg-heading-font;
@@ -16,10 +19,18 @@
 }
 
 .product-details {
-  @include a.flexbox-config($flex-direction: row);
+  @include a.flexbox-config(
+    $flex-direction: row,
+    $justify-content: space-between,
+    $align-items: center
+  );
   margin-bottom: 1em;
-  @include a.sm-tablets {
-    flex-direction: column;
+  @include a.lg-tablets {
+    @include a.flexbox-config(
+      $flex-direction: column,
+      $justify-content: flex-start,
+      $align-items: flex-start
+    );
   }
 }
 .product-desc__blurb {
@@ -38,6 +49,9 @@
     font-weight: bold;
     color: a.$black-text;
     font-size: a.$lg-heading;
+    @include a.extra-sm-phones-max {
+      font-size: 16px;
+    }
   }
 
   .product-desc__price-item:last-child {
@@ -47,21 +61,32 @@
     padding: 0.5em;
     font-size: a.$rg-font;
     margin-left: 1em;
+    @include a.extra-sm-phones-max {
+      font-size: 12px;
+    }
   }
 }
 
 .product-desc__sale {
   > * {
+    margin-right: 1.2em;
     text-decoration: line-through;
     color: a.$light-gray-two;
     font-size: a.$rg-font;
     font-weight: bold;
+    @include a.extra-sm-phones-max {
+      font-size: 12px;
+      margin-right: 2em;
+    }
+    @include a.lg-tablets {
+      margin-right: 0;
+    }
   }
 }
 
 .product-desc__pay {
   @include a.flexbox-config($flex-direction: column);
-  @include a.sm-tablets {
+  @include a.lg-tablets {
     flex-direction: row;
   }
 }
