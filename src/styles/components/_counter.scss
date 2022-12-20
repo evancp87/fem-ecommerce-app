@@ -2,16 +2,21 @@
 
 .counter {
   flex: 1 1 30%;
+  @include a.lg-tablets-max-width {
+    margin-bottom: 1em;
+  }
   .counter__btn {
     max-width: 100%;
     border: none;
-    width: 100%;
+    width: calc(100% - 20px);
+    height: 56px;
     @include a.flexbox-config(
       $flex-direction: row,
-      $justify-content: space-around
+      $justify-content: space-around,
+      $align-items: center
     );
     padding: 0.4em 0.2em;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     background-color: a.$counter;
   }
