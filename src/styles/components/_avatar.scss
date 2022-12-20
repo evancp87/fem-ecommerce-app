@@ -10,5 +10,12 @@
       outline-color: $orange;
       border-radius: 50%;
     }
+    @include extra-sm-phones-max {
+      margin-right: 0.7em;
+    }
+    @include sm-tablets-max-width {
+      margin-right: 0.5em;
+      max-width: 35px;
+    }
   }
 }
