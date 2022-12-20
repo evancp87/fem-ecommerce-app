@@ -2,15 +2,15 @@ import React from "react";
 
 function Sidebar() {
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <ul className="sidebar__nav">
-        <li className="sidebar__nav__item">Collections</li>
-        <li className="sidebar__nav__item">Men</li>
-        <li className="sidebar__nav__item">Women</li>
-        <li className="sidebar__nav__item">About</li>
-        <li className="sidebar__nav__item">Contact</li>
+        <li className="sidebar__nav-item">Collections</li>
+        <li className="sidebar__nav-item">Men</li>
+        <li className="sidebar__nav-item">Women</li>
+        <li className="sidebar__nav-item">About</li>
+        <li className="sidebar__nav-item">Contact</li>
       </ul>
-    </div>
+    </aside>
   );
 }
 
