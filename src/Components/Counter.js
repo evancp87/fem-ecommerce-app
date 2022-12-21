@@ -28,6 +28,7 @@ function Counter({ products }) {
           className="counter__btn-inner"
           // onClick={decreaseQuantity}
           onClick={decrement}
+          tabIndex="7"
         >
           <img src={minus} alt="minus btn" />
         </div>
@@ -35,6 +36,7 @@ function Counter({ products }) {
         <div
           className="counter__btn-inner"
           onClick={increment}
+          tabIndex="8"
           // onClick={increaseQuantity}
         >
           <img src={plus} alt="plus btn" />

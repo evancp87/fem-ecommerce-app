@@ -9,6 +9,7 @@ function AddToCartBtn({ products }) {
       <button
         className="add-to-cart__btn"
         onClick={() => addToCart(products[0])}
+        tabIndex="9"
       >
         <img
           src={require("../assets/images/icon-cart.svg").default}
