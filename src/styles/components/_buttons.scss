@@ -28,6 +28,9 @@
     .add-to-cart__cart-icon {
       margin-right: 0.5em;
     }
+    @include lg-tablets-max-width {
+      box-shadow: 7px 27px 24px -22px rgb(255 126 27);
+    }
     &:hover {
       background-color: scale-color($orange, $lightness: +30%);
     }

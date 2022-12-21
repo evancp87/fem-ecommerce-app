@@ -108,7 +108,7 @@
   }
 }
 @mixin main-phone-breakpoint {
-  @media (min-width: 400) {
+  @media (min-width: 400px) {
     @content;
   }
 }
@@ -125,6 +125,11 @@
 
 @mixin extra-sm-phones-max {
   @media (max-width: 300px) {
+    @content;
+  }
+}
+@mixin xxs-mobile-breakpoint {
+  @media (min-width: 255px) and (max-width: 299px) {
     @content;
   }
 }

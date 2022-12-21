@@ -38,8 +38,6 @@
   border-radius: 10px;
   cursor: pointer;
   &:hover {
-    outline-style: solid;
-    outline-color: $orange;
     opacity: 0.5;
   }
 }
@@ -57,6 +55,10 @@
   width: 550px;
   max-width: 550px;
   height: auto;
+  @include xl-screens {
+    left: 40%;
+    top: 11%;
+  }
 
   .lightbox__modal-prev,
   .lightbox__modal-next {

@@ -21,3 +21,10 @@
     background-color: a.$counter;
   }
 }
+
+.counter__btn-inner {
+  &:hover {
+    filter: brightness(0) saturate(100%) invert(66%) sepia(29%) saturate(6944%)
+      hue-rotate(347deg) brightness(130%) contrast(101%);
+  }
+}
