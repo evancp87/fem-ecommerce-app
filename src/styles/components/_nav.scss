@@ -35,8 +35,12 @@
 
   .navigation__items-item {
     margin-right: 1.5em;
+    color: a.$light-gray;
     cursor: pointer;
     transition: 0.2s all ease-in-out;
+    &:hover {
+      color: a.$black-text;
+    }
 
     &:after {
       content: "";
@@ -64,13 +68,21 @@
     display: none;
   }
 
-  > .navigation__hamburger-icons-icon:first-of-type {
+  .close-menu {
     @include a.sm-tablets-max-width {
       display: none;
     }
   }
   //   &:first-child {
   //   }
+}
+
+.open-menu.active {
+  display: none;
+}
+
+.close-menu.active {
+  display: block;
 }
 
 .cart-wrapper {

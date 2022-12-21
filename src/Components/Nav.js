@@ -2,9 +2,21 @@ import React, { useState, useContext } from "react";
 import Avatar from "./Avatar";
 import Cart from "./Cart";
 import CartContext from "../services/Cart/CartContext";
+import Sidebar from "./Sidebar";
 
 function Nav() {
   const [cartIsActive, setCartIsActive] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(false);
+
+  const handleOpenSidebar = () => {
+    // e.stopPropagation();
+    setOpenSidebar(!openSidebar);
+  };
+
+  const handleCloseSidebar = (e) => {
+    e.stopPropagation();
+    setOpenSidebar(false);
+  };
 
   const openCart = () => {
     setCartIsActive(!cartIsActive);
@@ -18,14 +30,24 @@ function Nav() {
         <ul className="navigation__hamburger ">
           <li className="navigation__hamburger-icons">
             <img
-              className="navigation__hamburger-icons-icon"
+              className={
+                openSidebar
+                  ? "navigation__hamburger-icons-icon open-menu active"
+                  : "navigation__hamburger-icons-icon open-menu "
+              }
               src={require("../assets/images/icon-menu.svg").default}
               alt="menu icon"
+              onClick={handleOpenSidebar}
             />
             <img
-              className="navigation__hamburger-icons-icon"
+              className={
+                openSidebar
+                  ? "navigation__hamburger-icons-icon close-menu active"
+                  : "navigation__hamburger-icons-icon close-menu "
+              }
               src={require("../assets/images/icon-close.svg").default}
               alt="menu-close icon"
+              onClick={handleCloseSidebar}
             />
           </li>
           <li className="navigation__hamburger-logo">
@@ -33,17 +55,29 @@ function Nav() {
           </li>
         </ul>
 
+        {openSidebar && <Sidebar openSidebar={openSidebar} />}
+
         <ul className="navigation-items">
-          <li className="navigation__items-item">Collections</li>
-          <li className="navigation__items-item">Men</li>
-          <li className="navigation__items-item">Women</li>
-          <li className="navigation__items-item">About</li>
-          <li className="navigation__items-item">Contact</li>
+          <li className="navigation__items-item" tabIndex="0">
+            Collections
+          </li>
+          <li className="navigation__items-item" tabIndex="1">
+            Men
+          </li>
+          <li className="navigation__items-item" tabIndex="2">
+            Women
+          </li>
+          <li className="navigation__items-item" tabIndex="3">
+            About
+          </li>
+          <li className="navigation__items-item" tabIndex="4">
+            Contact
+          </li>
         </ul>
       </div>
 
       <ul className="cart-wrapper">
-        <li className="cart-wrapper__item">
+        <li className="cart-wrapper__item" tabIndex="5">
           <img
             src={require("../assets/images/icon-cart.svg").default}
             className="cart-wrapper__item-icon"

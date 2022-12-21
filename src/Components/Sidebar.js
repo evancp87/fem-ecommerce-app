@@ -1,8 +1,12 @@
 import React from "react";
-
-function Sidebar() {
+import classnames from "classnames";
+function Sidebar(props) {
   return (
-    <aside className="sidebar">
+    <aside
+      className={classnames("sidebar", {
+        active: props.openSidebar,
+      })}
+    >
       <ul className="sidebar__nav">
         <li className="sidebar__nav-item">Collections</li>
         <li className="sidebar__nav-item">Men</li>
