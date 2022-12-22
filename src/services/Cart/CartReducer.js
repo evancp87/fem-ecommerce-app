@@ -1,17 +1,17 @@
 import {
   ADD_TO_CART,
   REMOVE_ITEM,
-  // DECREASE,
-  // INCREASE,
   DECREMENT,
   INCREMENT,
   CLEAR,
 } from "./cartTypes";
 
+// local storage
 const Storage = (items) => {
   localStorage.setItem("items", JSON.stringify(items.length > 0 ? items : []));
 };
 
+// handles how items are added up
 export const sumItems = (items) => {
   Storage(items);
   let itemCount = items.reduce((total, product) => total + product.quantity, 0);
@@ -63,27 +63,6 @@ const cartReducer = (state, action) => {
         ),
         items: [...state.items.filter((item) => item.id !== action.payload.id)],
       };
-
-    // case DECREASE:
-    //   state.items[
-    //     state.items.findIndex((item) => item.id === action.payload.id)
-    //   ].quantity--;
-
-    //   return {
-    //     ...state,
-    //     ...sumItems(state.items),
-    //     items: [...state.items],
-    //   };
-
-    // case INCREASE:
-    //   state.items[
-    //     state.items.findIndex((item) => item.id === action.payload.id)
-    //   ].quantity++;
-    //   return {
-    //     ...state,
-    //     ...sumItems(state.items),
-    //     items: [...state.items],
-    //   };
 
     case CLEAR:
       return {

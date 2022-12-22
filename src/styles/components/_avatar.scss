@@ -6,8 +6,10 @@
     height: auto;
     display: block;
     &:hover {
-      outline-style: solid;
-      outline-color: $orange;
+      outline: {
+        style: solid;
+        color: $orange;
+      }
       border-radius: 50%;
     }
     @include extra-sm-phones-max {

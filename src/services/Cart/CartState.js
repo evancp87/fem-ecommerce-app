@@ -13,11 +13,9 @@ const cartState = ({ children }) => {
     ...sumItems(storage),
     count: 1,
     checkout: false,
-    // items: [],
-    // checkout: false,
   };
 
-  // reducer
+  // reducers
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   const addToCart = (payload) => {

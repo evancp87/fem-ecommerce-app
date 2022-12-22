@@ -26,12 +26,14 @@ function Lightbox() {
   const [isActive, setIsActive] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
+  // sets the default main image and active thumbnail on load
   useEffect(() => {
     setCurrentImage(lightboxImgData[0].larger);
     setIsActive(lightboxImgData[0].thumbnail);
     // sets active thumbnail with lightboxImgdata[0].thumbnail with  hover status css- short circuit-
   }, []);
 
+  // sets the image to show on clikc
   const showImage = (image) => {
     setImageToShow(image);
     setLightboxDisplay(true);
@@ -41,6 +43,7 @@ function Lightbox() {
     setLightboxDisplay(false);
   };
 
+  // shows next image in lightbox modal
   const showNext = (e) => {
     e.stopPropagation();
     let currentIndex = lightboxImgData.indexOf(imageToShow);
@@ -52,6 +55,7 @@ function Lightbox() {
     }
   };
 
+  // shows previous image in lightbox modal
   const showPrev = (e) => {
     e.stopPropagation();
     let currentIndex = lightboxImgData.indexOf(imageToShow);
@@ -62,12 +66,6 @@ function Lightbox() {
       setImageToShow(nextImage.larger);
     }
   };
-
-  // const handleOpenMainImage = (image) => {
-  //   setCurrentImage(image.larger);
-
-  //   setIsActive(!isActive);
-  // };
 
   return (
     <div className="lightbox">
@@ -119,7 +117,7 @@ function Lightbox() {
       ) : (
         ""
       )}
-
+      {/* main image */}
       {currentImage && (
         <img
           src={currentImage}
@@ -131,6 +129,8 @@ function Lightbox() {
           alt="large"
         />
       )}
+
+      {/* main image thumbnails */}
       <div className="lightbox__thumbnails">
         {lightboxImgData.map((image, index) => (
           <img

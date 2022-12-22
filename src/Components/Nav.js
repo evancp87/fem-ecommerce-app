@@ -8,8 +8,9 @@ function Nav() {
   const [cartIsActive, setCartIsActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  const handleOpenSidebar = () => {
-    // e.stopPropagation();
+  // for open and closing of sidebar with hamburger
+  const handleOpenSidebar = (e) => {
+    e.stopPropagation();
     setOpenSidebar(!openSidebar);
   };
 
@@ -18,12 +19,13 @@ function Nav() {
     setOpenSidebar(false);
   };
 
+  // open and closes cart
   const openCart = () => {
     setCartIsActive(!cartIsActive);
   };
 
-  const { items, sumItems } = useContext(CartContext);
-  // const { quantity } = items[0];
+  const { items } = useContext(CartContext);
+
   return (
     <div className="navigation">
       <div className="navigation__first-section">
@@ -58,26 +60,26 @@ function Nav() {
         {openSidebar && <Sidebar openSidebar={openSidebar} />}
 
         <ul className="navigation-items">
-          <li className="navigation__items-item" tabIndex="0">
+          <li className="navigation__items-item" tabIndex="1">
             Collections
           </li>
-          <li className="navigation__items-item" tabIndex="1">
+          <li className="navigation__items-item" tabIndex="2">
             Men
           </li>
-          <li className="navigation__items-item" tabIndex="2">
+          <li className="navigation__items-item" tabIndex="3">
             Women
           </li>
-          <li className="navigation__items-item" tabIndex="3">
+          <li className="navigation__items-item" tabIndex="4">
             About
           </li>
-          <li className="navigation__items-item" tabIndex="4">
+          <li className="navigation__items-item" tabIndex="5">
             Contact
           </li>
         </ul>
       </div>
 
       <ul className="cart-wrapper">
-        <li className="cart-wrapper__item" tabIndex="5">
+        <li className="cart-wrapper__item" tabIndex="6">
           <img
             src={require("../assets/images/icon-cart.svg").default}
             className="cart-wrapper__item-icon"

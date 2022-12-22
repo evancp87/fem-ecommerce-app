@@ -6,7 +6,6 @@
   opacity: 0;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   max-width: 360px;
-  height: 256px;
   position: relative;
   z-index: 400;
   background-color: white;
@@ -20,7 +19,6 @@
   translate: 10%;
 
   @include xxs-mobile-breakpoint {
-    //   width: 300px;
     top: 4em;
     left: -11em;
     translate: -1%;
@@ -32,13 +30,10 @@
     translate: -3%;
   }
   @include md-phone {
-    // width: 300px;
-
     left: -13em;
     translate: -10%;
   }
   @include main-phone-breakpoint {
-    // width: 300px;
     left: -14em;
     translate: -10%;
   }
@@ -51,7 +46,6 @@
 
   @include lg-tablets {
     border-radius: 0 0 10px 10px;
-
     top: 3.5em;
     left: -13em;
   }
@@ -66,9 +60,8 @@
   margin: 1em;
 
   + .cart_content {
-    padding-top: 1em;
     border-top: 0.1px solid $nav-border;
-    padding-top: 3em;
+    padding-top: 2em;
     @include flexbox-config($justify-content: center);
 
     .cart__content-product {
@@ -101,8 +94,10 @@
     border-radius: 5px;
   }
   .cart__content-product-info-heading {
-    font-size: $rg-font;
-    font-weight: normal;
+    font: {
+      size: $rg-font;
+      weight: normal;
+    }
   }
   .cart__content-product-trash {
     max-width: 14px;

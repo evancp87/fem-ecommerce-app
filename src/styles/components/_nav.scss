@@ -41,7 +41,7 @@
     &:hover {
       color: a.$black-text;
     }
-
+    // for transitioning border effect
     &:after {
       content: "";
       display: block;
@@ -73,8 +73,6 @@
       display: none;
     }
   }
-  //   &:first-child {
-  //   }
 }
 
 .open-menu.active {

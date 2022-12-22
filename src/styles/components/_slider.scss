@@ -1,38 +1,6 @@
 @use "../abstracts/" as a;
 
-// .slider {
-//   width: 100vw;
-//   overflow: hidden;
-//   position: relative;
-//   height: 300px;
-//   @include a.sm-tablets {
-//     display: none;
-//   }
-//   .slider__gallery {
-//     @include a.flexbox-config($flex-direction: row);
-//     width: 100vw;
-//     flex-wrap: nowrap;
-
-//     .slider__gallery-item {
-//       width: 100vw;
-
-//       max-width: 100vw;
-//       position: relative;
-//       @include a.flexbox-config(
-//         $flex-direction: row,
-//         // $align-items: center,
-//         // $justify-content: center
-//       );
-//       transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
-
-//       .slider__gallery-item-img {
-//         display: inline-block;
-//         object-fit: cover;
-//         // height: 300px;
-//       }
-//     }
-//   }
-// }
+// for lightbox modal nav btns
 
 .slider__gallery-item-prev,
 .slider__gallery-item-next {

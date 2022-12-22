@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import CheckoutBtn from "./CheckoutBtn";
 import CartContext from "../services/Cart/CartContext";
 
-const lightboxThumbnailImg = require("../assets/images/image-product-2-thumbnail.jpg");
 function FilledCart() {
-  const { items, sumItems, itemCount, clearCart } = useContext(CartContext);
+  const { items, clearCart } = useContext(CartContext);
   const { name, image, price, quantity } = items[0];
   const total = price * quantity;
+
+  // items of the filled cart, calculates quantity and price, and allows user to clear cart
+
   return (
     <div className="cart_content">
       <div className="cart__content-product">
@@ -32,6 +34,7 @@ function FilledCart() {
             src={require("../assets/images/icon-delete.svg").default}
             alt="trash icon"
             onClick={clearCart}
+            tabIndex="7"
             className="cart__content-product-trash"
           />
         </div>

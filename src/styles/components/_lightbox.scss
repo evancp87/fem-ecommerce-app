@@ -1,11 +1,9 @@
 @use "../abstracts" as *;
 
 .lightbox {
-  // @include sm-tablets-max-width {
-  //   display: none;
-  // }
   flex: 1;
 }
+
 .lightbox__thumbnails {
   @include lg-tablets-max-width {
     display: none;
@@ -31,7 +29,6 @@
   width: 88px;
   height: auto;
   display: block;
-  object-fit: contain;
   padding: 1px;
   object-fit: contain;
   margin: 0 0.2em;
@@ -43,8 +40,10 @@
 }
 
 .thumbnail-img.active {
-  outline-style: solid;
-  outline-color: $orange;
+  outline: {
+    style: solid;
+    color: $orange;
+  }
   opacity: 0.5;
 }
 

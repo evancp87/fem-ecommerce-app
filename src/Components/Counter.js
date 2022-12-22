@@ -4,41 +4,16 @@ const minus = require("../assets/images/icon-minus.svg").default;
 import CartContext from "../services/Cart/CartContext";
 
 function Counter({ products }) {
-  const { items, decrease, increase, count, increment, decrement } =
-    useContext(CartContext);
-
-  // const isInCart = (product) => {
-  //   return !!items.find((item) => item.id === product.id);
-  // };
-
-  // const [count, setCount] = useState(1);
-
-  // const decreaseQuantity = () => {
-  //   count < 1 ? 1 : setCount((count) => count - 1);
-  // };
-
-  // const increaseQuantity = () => {
-  //   setCount((count) => count + 1);
-  // };
+  const { count, increment, decrement } = useContext(CartContext);
 
   return (
     <div className="counter">
       <button className="counter__btn">
-        <div
-          className="counter__btn-inner"
-          // onClick={decreaseQuantity}
-          onClick={decrement}
-          tabIndex="7"
-        >
+        <div className="counter__btn-inner" onClick={decrement} tabIndex="9">
           <img src={minus} alt="minus btn" />
         </div>
         <p className="counter-amount">{count}</p>
-        <div
-          className="counter__btn-inner"
-          onClick={increment}
-          tabIndex="8"
-          // onClick={increaseQuantity}
-        >
+        <div className="counter__btn-inner" onClick={increment} tabIndex="10">
           <img src={plus} alt="plus btn" />
         </div>
       </button>
