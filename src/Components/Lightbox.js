@@ -106,7 +106,7 @@ function Lightbox() {
                 key={index}
                 onClick={() => {
                   showImage(image.larger);
-                  setIsActive(!isActive);
+                  setIsActive(true);
                   setActiveIndex(index);
 
                   // sets active thumbnail with lightboxImgdata[0].thumbnail with  hover status css- short circuit-
@@ -144,10 +144,13 @@ function Lightbox() {
             key={index}
             onClick={() => {
               setCurrentImage(image.larger);
-              setIsActive(!isActive);
+              setIsActive(true);
+              setActiveIndex(index);
             }}
             src={image.thumbnail}
-            className={classnames("thumbnail-img", { active: !isActive })}
+            className={classnames("thumbnail-img", {
+              active: !isActive && activeIndex === index,
+            })}
           />
         ))}
       </div>
