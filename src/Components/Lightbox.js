@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 const lightboxThumbnailImg = require("../assets/images/image-product-1-thumbnail.jpg");
@@ -33,7 +34,7 @@ function Lightbox() {
     // sets active thumbnail with lightboxImgdata[0].thumbnail with  hover status css- short circuit-
   }, []);
 
-  // sets the image to show on clikc
+  // sets the image to show on click
   const showImage = (image) => {
     setImageToShow(image);
     setLightboxDisplay(true);
@@ -46,23 +47,29 @@ function Lightbox() {
   // shows next image in lightbox modal
   const showNext = (e) => {
     e.stopPropagation();
-    let currentIndex = lightboxImgData.indexOf(imageToShow);
+    let currentIndex = lightboxImgData
+      .map((i) => i.larger)
+      .indexOf(imageToShow);
+    console.log(currentIndex);
     if (currentIndex >= lightboxImgData.length - 1) {
       setLightboxDisplay(false);
     } else {
       let nextImage = lightboxImgData[currentIndex + 1];
-      setImageToShow(nextImage);
+      setImageToShow(nextImage.larger);
     }
   };
 
   // shows previous image in lightbox modal
   const showPrev = (e) => {
     e.stopPropagation();
-    let currentIndex = lightboxImgData.indexOf(imageToShow);
+    let currentIndex = lightboxImgData
+      .map((i) => i.larger)
+      .indexOf(imageToShow);
+    console.log(currentIndex);
     if (currentIndex <= 0) {
       setLightboxDisplay(false);
     } else {
-      let nextImage = lightboxImgData.larger[currentIndex - 1];
+      let nextImage = lightboxImgData[currentIndex - 1];
       setImageToShow(nextImage.larger);
     }
   };
