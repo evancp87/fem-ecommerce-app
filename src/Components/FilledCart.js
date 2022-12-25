@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useContext } from "react";
 import CheckoutBtn from "./CheckoutBtn";
 import CartContext from "../services/Cart/CartContext";

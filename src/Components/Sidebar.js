@@ -1,5 +1,7 @@
 import React from "react";
 import classnames from "classnames";
+import PropTypes from "prop-types";
+
 function Sidebar(props) {
   return (
     <aside
@@ -17,5 +19,8 @@ function Sidebar(props) {
     </aside>
   );
 }
+Sidebar.propTypes = {
+  openSidebar: PropTypes.bool,
+};
 
 export default Sidebar;

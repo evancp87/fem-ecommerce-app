@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 const plus = require("../assets/images/icon-plus.svg").default;
 const minus = require("../assets/images/icon-minus.svg").default;
 import CartContext from "../services/Cart/CartContext";
 
-function Counter({ products }) {
+function Counter() {
   const { count, increment, decrement } = useContext(CartContext);
 
   return (
