@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useContext } from "react";
 import CartContext from "../services/Cart/CartContext";
+import PropTypes from "prop-types";
 
 function AddToCartBtn({ products }) {
   const { addToCart } = useContext(CartContext);
@@ -21,5 +23,9 @@ function AddToCartBtn({ products }) {
     </div>
   );
 }
+
+AddToCartBtn.propTypes = {
+  products: PropTypes.array,
+};
 
 export default AddToCartBtn;
