@@ -723,6 +723,7 @@ main {
   height: 16px;
   display: block;
   align-self: center;
+  cursor: pointer;
 }
 
 .cart__content-product-info-quantity {
@@ -840,9 +841,6 @@ main {
   align-items: center;
   position: relative;
 }
-.cart-wrapper > * {
-  cursor: pointer;
-}
 .cart-wrapper .cart-wrapper__item {
   margin-top: 0.5em;
   margin-right: 2em;
@@ -852,6 +850,9 @@ main {
   .cart-wrapper .cart-wrapper__item {
     margin-top: 0;
   }
+}
+.cart-wrapper .cart-wrapper__item > .cart-wrapper__item-icon {
+  cursor: pointer;
 }
 .cart-wrapper .cart-wrapper__item-count {
   background-color: orange;

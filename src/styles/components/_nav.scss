@@ -86,9 +86,7 @@
 .cart-wrapper {
   @include a.flexbox-config($flex-direction: row, $align-items: center);
   position: relative;
-  > * {
-    cursor: pointer;
-  }
+
   .cart-wrapper__item {
     margin: {
       top: 0.5em;
@@ -98,6 +96,9 @@
       margin-top: 0;
     }
     position: relative;
+    > .cart-wrapper__item-icon {
+      cursor: pointer;
+    }
   }
   .cart-wrapper__item-count {
     background-color: orange;
