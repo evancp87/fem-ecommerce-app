@@ -67,6 +67,7 @@ const cartReducer = (state, action) => {
     case CLEAR:
       return {
         items: [],
+        count: 1,
         ...sumItems([]),
       };
 
