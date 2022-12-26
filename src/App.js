@@ -18,7 +18,7 @@ function App() {
         <a href="https://www.frontendmentor.io?ref=challenge">
           Frontend Mentor
         </a>
-        . Coded by <a href="#">Evan Parker</a>.
+        . Coded by Evan Parker.
       </div>
     </div>
   );
