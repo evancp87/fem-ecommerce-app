@@ -912,7 +912,7 @@ main {
   transition: all ease-in-out 1s;
   background-color: #fff;
 }
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .sidebar {
     display: none;
   }

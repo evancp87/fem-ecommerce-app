@@ -40,8 +40,8 @@ function Lightbox() {
   // sets the image to show on click
   const showImage = (image) => {
     setImageToShow(image);
-    setLightboxDisplay(true);
-    setOverlay(true);
+    window.innerWidth > 799 && setLightboxDisplay(true);
+    window.innerWidth > 799 && setOverlay(true);
   };
 
   const hideLightbox = () => {

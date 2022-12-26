@@ -12,7 +12,7 @@
   transition: all ease-in-out 1s;
   background-color: $white;
 
-  @include sm-tablets {
+  @include lg-tablets {
     display: none;
   }
   .sidebar__nav {
