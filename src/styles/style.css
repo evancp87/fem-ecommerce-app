@@ -369,7 +369,7 @@ main {
 }
 
 .attribution {
-  margin-top: 2em;
+  margin-top: 10em;
 }
 @media (max-width: 800px) {
   .attribution {
@@ -382,6 +382,7 @@ main {
   max-width: 50px;
   height: auto;
   display: block;
+  cursor: pointer;
 }
 .avatar .avatar__img:hover {
   outline-style: solid;
@@ -520,6 +521,8 @@ main {
   margin: 1em 0 1em 0;
   max-width: 100%;
   width: 100%;
+  position: relative;
+  z-index: 1500;
 }
 @media (max-width: 800px) {
   .lightbox__thumbnails-modal {
@@ -582,7 +585,7 @@ main {
   height: auto;
   border-radius: 10px;
   position: relative;
-  z-index: 1000;
+  z-index: 1500;
 }
 
 .lightbox__main-img {
@@ -602,7 +605,7 @@ main {
 
 .lightbox__modal-close-menu {
   position: absolute;
-  z-index: 1100;
+  z-index: 1500;
   right: 0;
   top: -5%;
 }
@@ -821,7 +824,7 @@ main {
     display: none;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 800px) {
   .navigation__hamburger-icons .close-menu {
     display: none;
   }
@@ -876,6 +879,27 @@ main {
     flex-wrap: wrap;
   }
 }
+.overlay {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000000;
+  width: auto;
+  height: 100vh;
+  transition: all 1.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.overlay.active {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1400;
+}
+
 .sidebar {
   width: 70vw;
   min-height: 200vh;
@@ -915,18 +939,17 @@ main {
 }
 .slider__gallery-item-prev,
 .slider__gallery-item-next {
-  top: 50%;
+  top: 40%;
   position: absolute;
   cursor: pointer;
-  z-index: 1100;
-  border: 1px solid black;
+  z-index: 1500;
   border-radius: 50%;
   padding: 1em;
   background: white;
 }
-.slider__gallery-item-prev:hover,
-.slider__gallery-item-next:hover {
-  background-color: orange;
+.slider__gallery-item-prev .slider__gallery-item-img:hover,
+.slider__gallery-item-next .slider__gallery-item-img:hover {
+  filter: brightness(0) saturate(100%) invert(66%) sepia(29%) saturate(6944%) hue-rotate(347deg) brightness(130%) contrast(101%);
 }
 
 .slider__gallery-item-prev {

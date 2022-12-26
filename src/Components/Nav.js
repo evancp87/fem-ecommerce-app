@@ -1,22 +1,26 @@
+/* eslint-disable no-undef */
 import React, { useState, useContext } from "react";
 import Avatar from "./Avatar";
 import Cart from "./Cart";
 import CartContext from "../services/Cart/CartContext";
 import Sidebar from "./Sidebar";
-
+import Overlay from "./Overlay";
 function Nav() {
   const [cartIsActive, setCartIsActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
+  const [overlay, setOverlay] = useState(false);
 
   // for open and closing of sidebar with hamburger
   const handleOpenSidebar = (e) => {
     e.stopPropagation();
     setOpenSidebar(!openSidebar);
+    setOverlay(!overlay);
   };
 
   const handleCloseSidebar = (e) => {
     e.stopPropagation();
     setOpenSidebar(false);
+    setOverlay(false);
   };
 
   // open and closes cart
@@ -58,6 +62,7 @@ function Nav() {
         </ul>
 
         {openSidebar && <Sidebar openSidebar={openSidebar} />}
+        {openSidebar && <Overlay overlay={overlay} />}
 
         <ul className="navigation-items">
           <li className="navigation__items-item" tabIndex="1">

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useContext } from "react";
 const plus = require("../assets/images/icon-plus.svg").default;
 const minus = require("../assets/images/icon-minus.svg").default;

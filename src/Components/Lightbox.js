@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
+import Overlay from "./Overlay";
+
 const lightboxThumbnailImg = require("../assets/images/image-product-1-thumbnail.jpg");
 const lightboxThumbnailImgTwo = require("../assets/images/image-product-2-thumbnail.jpg");
 const lightboxThumbnailImgThree = require("../assets/images/image-product-3-thumbnail.jpg");
@@ -26,22 +28,25 @@ function Lightbox() {
   const [currentImage, setCurrentImage] = useState(null);
   const [isActive, setIsActive] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [overlay, setOverlay] = useState(false);
 
   // sets the default main image and active thumbnail on load
   useEffect(() => {
     setCurrentImage(lightboxImgData[0].larger);
-    setIsActive(lightboxImgData[0].thumbnail);
-    // sets active thumbnail with lightboxImgdata[0].thumbnail with  hover status css- short circuit-
+    setActiveIndex(0);
+    setIsActive(true);
   }, []);
 
   // sets the image to show on click
   const showImage = (image) => {
     setImageToShow(image);
     setLightboxDisplay(true);
+    setOverlay(true);
   };
 
   const hideLightbox = () => {
     setLightboxDisplay(false);
+    setOverlay(false);
   };
 
   // shows next image in lightbox modal
@@ -53,9 +58,11 @@ function Lightbox() {
     console.log(currentIndex);
     if (currentIndex >= lightboxImgData.length - 1) {
       setLightboxDisplay(false);
+      setOverlay(false);
     } else {
       let nextImage = lightboxImgData[currentIndex + 1];
       setImageToShow(nextImage.larger);
+      setActiveIndex(currentIndex + 1);
     }
   };
 
@@ -68,9 +75,11 @@ function Lightbox() {
     console.log(currentIndex);
     if (currentIndex <= 0) {
       setLightboxDisplay(false);
+      setOverlay(false);
     } else {
       let nextImage = lightboxImgData[currentIndex - 1];
       setImageToShow(nextImage.larger);
+      setActiveIndex(currentIndex - 1);
     }
   };
 
@@ -88,18 +97,22 @@ function Lightbox() {
             src={closeMenu}
             onClick={hideLightbox}
           />
-          <img
-            src={prev}
-            alt="prev btn"
-            onClick={showPrev}
-            className="slider__gallery-item-prev"
-          />
-          <img
-            src={next}
-            alt="next btn"
-            onClick={showNext}
-            className="slider__gallery-item-next"
-          />
+          <div className="slider__gallery-item-prev">
+            <img
+              src={prev}
+              alt="prev btn"
+              onClick={showPrev}
+              className="slider__gallery-item-img"
+            />
+          </div>
+          <div className="slider__gallery-item-next">
+            <img
+              src={next}
+              alt="next btn"
+              onClick={showNext}
+              className="slider__gallery-item-img"
+            />
+          </div>
           <div className="lightbox__thumbnails-modal ">
             {lightboxImgData.map((image, index) => (
               <img
@@ -131,12 +144,11 @@ function Lightbox() {
           onClick={() => {
             showImage(currentImage);
           }}
-          // thumbnails={thumbnails}
           className="lightbox__main-img"
           alt="large"
         />
       )}
-
+      {overlay && <Overlay overlay={overlay} />}
       {/* main image thumbnails */}
       <div className="lightbox__thumbnails">
         {lightboxImgData.map((image, index) => (
@@ -149,7 +161,7 @@ function Lightbox() {
             }}
             src={image.thumbnail}
             className={classnames("thumbnail-img", {
-              active: !isActive && activeIndex === index,
+              active: isActive && activeIndex === index,
             })}
           />
         ))}
