@@ -16,8 +16,6 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -33,89 +31,92 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Solution screenshot](./src/assets/screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [FEM](https://www.frontendmentor.io/solutions/ecommerce-product-page-Utu7z3x4Ey)
+- Live Site URL: [Netlify](https://e-commerce-fem.netlify.app/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- useContext and useReducer for state management
+- Local Storage
+- Flexbox
+- Mobile-first workflow
+- Sass
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This is the first project where i've used useContext and useReducer widely. I also built a lot of components i'd never before, such as lightboxes, counters, carts. I enjoyed the challenge of using the counter value to determine how many items to add to the cart. It took me a while to figure that one out.
 
-To see how you can add code snippets, see below:
+I also used local storage for the first time.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+I was proud of using quite complicated lightbox data in multiple places, from thumbnails that opened larger images, modals, to implementing active styles, and having to reuse styles and functionality in different places on mobile. It was quite a challenge, and i'm not sure if i reused code in a DRY manner. There is a bit of duplicate code in places.
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+There were a lot of different things i did for the first time, like using JS to stop functions working on smaller devices, instead of css.
 
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+ {currentImage && (
+        <div className="lightbox-main-img">
+          <img
+            src={currentImage}
+            onClick={() => {
+              showImage(currentImage);
+            }}
+            className="lightbox__main-img"
+            alt="large image"
+          />
+
+          <img
+            src={prev}
+            alt="previous btn"
+            onClick={showPrevMobile}
+            className="mobile-slider__item-prev"
+          />
+
+          <img
+            src={next}
+            alt="next btn"
+            onClick={showNextMobile}
+            className="mobile-slider__item-next"
+          />
+        </div>
+      )}
+      {overlay && <Overlay overlay={overlay} />}
+      {/* main image thumbnails */}
+      <div className="lightbox__thumbnails">
+        {lightboxImgData.map((image, index) => (
+          <img
+            key={index}
+            alt="thumbnail"
+            onClick={() => {
+              setCurrentImage(image.larger);
+              setIsActive(true);
+              setActiveIndex(index);
+            }}
+            src={image.thumbnail}
+            className={classnames("thumbnail-img", {
+              active: isActive && activeIndex === index,
+            })}
+          />
+        ))}
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-With these challenges there's always at least one or two things that i found i hadn't considered. This time it was the active index being set by the previous and next buttons
+With these challenges there's always at least one or two things that I found i hadn't considered until i realise i've forgotten to build them out. This time it was the active index being set by the previous and next buttons, and the same buttons being used on mobile devices. I think i need to do a bit more forward planning to ensure i am including everything.
 
-I took two different approaches in the app, firstly a useContext approach for the cart section, adn useState for the modal. Will seek to have a more consistent approach in future.
+I took two different approaches in the app, firstly a useContext approach for the cart section, and useState for the modal. I also used a bit of prop drilling for the overlay and sidebar elements, as i thought including them in useContext would be overkill. I'm not sure if overall this was the best approach, and if i should have a consistent way of handling state management. The modal images at first didn't seem to need to be passed around so much globally like the product/cart, but that's maybe because i didn't split out the elements so much. In future I will seek to have a more consistent approach.
 
-Responsiveness- better, but still not perfect on fiddly bits
+I continue to improve my responsive design, but i found fiddly bits, like the open cart, a bit painful to get looking right on every screen size.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+I also am not sure about get text aligning, wrapping onto new lines on specific words. I often feel like i'm hacking it and wonder if there's a better way, which i haven't found yet.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [Evan Parler](http://www.evanparker.co.uk/)
+- Frontend Mentor - [@evancp87](https://www.frontendmentor.io/profile/evancp87)
