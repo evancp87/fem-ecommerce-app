@@ -29,7 +29,7 @@
   max-width: 100%;
   width: 100%;
   position: relative;
-  z-index: 1500;
+  z-index: 1800;
 }
 
 .thumbnail-img {
@@ -92,7 +92,7 @@
     height: auto;
     border-radius: 10px;
     position: relative;
-    z-index: 1500;
+    z-index: 1900;
   }
 }
 
@@ -111,7 +111,7 @@
 
 .lightbox__modal-close-menu {
   position: absolute;
-  z-index: 1500;
+  z-index: 1950;
   right: 0;
   top: -5%;
   &:hover {

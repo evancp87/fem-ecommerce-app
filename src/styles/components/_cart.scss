@@ -7,7 +7,7 @@
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   max-width: 360px;
   position: relative;
-  z-index: 400;
+  z-index: 1450;
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 14px 21px 1px rgb(179 172 179);
@@ -122,4 +122,5 @@
 .cart.active {
   visibility: visible;
   opacity: 1;
+  z-index: 1450;
 }

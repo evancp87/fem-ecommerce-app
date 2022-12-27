@@ -83,6 +83,39 @@ function Lightbox() {
     }
   };
 
+  const showNextMobile = (e) => {
+    e.stopPropagation();
+    let currentIndex = lightboxImgData
+      .map((i) => i.larger)
+      .indexOf(imageToShow);
+    console.log(currentIndex);
+    if (currentIndex >= lightboxImgData.length - 1) {
+      setLightboxDisplay(false);
+      setOverlay(false);
+    } else {
+      let nextImage = lightboxImgData[currentIndex + 1];
+      showImage(nextImage.larger);
+      setActiveIndex(currentIndex + 1);
+    }
+  };
+
+  // shows previous image in lightbox modal
+  const showPrevMobile = (e) => {
+    e.stopPropagation();
+    let currentIndex = lightboxImgData
+      .map((i) => i.larger)
+      .indexOf(imageToShow);
+    console.log(currentIndex);
+    if (currentIndex <= 0) {
+      setLightboxDisplay(false);
+      setOverlay(false);
+    } else {
+      let nextImage = lightboxImgData[currentIndex - 1];
+      showImage(nextImage.larger);
+      setActiveIndex(currentIndex - 1);
+    }
+  };
+
   return (
     <div className="lightbox">
       {lightboxDisplay ? (
@@ -151,14 +184,14 @@ function Lightbox() {
           <img
             src={prev}
             alt="previous btn"
-            onClick={showPrev}
+            onClick={showPrevMobile}
             className="mobile-slider__item-prev"
           />
 
           <img
             src={next}
             alt="next btn"
-            onClick={showNext}
+            onClick={showNextMobile}
             className="mobile-slider__item-next"
           />
         </div>

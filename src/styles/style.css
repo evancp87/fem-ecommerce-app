@@ -530,7 +530,7 @@ main {
   max-width: 100%;
   width: 100%;
   position: relative;
-  z-index: 1500;
+  z-index: 1800;
 }
 @media (max-width: 800px) {
   .lightbox__thumbnails-modal {
@@ -596,7 +596,7 @@ main {
   height: auto;
   border-radius: 10px;
   position: relative;
-  z-index: 1500;
+  z-index: 1900;
 }
 
 .lightbox__main-img {
@@ -616,7 +616,7 @@ main {
 
 .lightbox__modal-close-menu {
   position: absolute;
-  z-index: 1500;
+  z-index: 1950;
   right: 0;
   top: -5%;
 }
@@ -633,7 +633,7 @@ main {
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   max-width: 360px;
   position: relative;
-  z-index: 400;
+  z-index: 1450;
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 14px 21px 1px #b3acb3;
@@ -756,6 +756,7 @@ main {
 .cart.active {
   visibility: visible;
   opacity: 1;
+  z-index: 1450;
 }
 
 .navigation {
@@ -827,7 +828,7 @@ main {
 
 .navigation__hamburger-icons {
   margin: 0 0.5em;
-  z-index: 1600;
+  z-index: 2100;
 }
 @media (min-width: 800px) {
   .navigation__hamburger-icons {
@@ -907,14 +908,14 @@ main {
   top: 0;
   bottom: 0;
   right: 0;
-  z-index: 1400;
+  z-index: 1600;
 }
 
 .sidebar {
   width: 70vw;
   min-height: 200vh;
   position: absolute;
-  z-index: 1500;
+  z-index: 2000;
   padding: 5rem 0 0 1rem;
   top: 0;
   bottom: 0;
@@ -952,7 +953,7 @@ main {
   top: 40%;
   position: absolute;
   cursor: pointer;
-  z-index: 1500;
+  z-index: 2000;
   border-radius: 50%;
   padding: 1em;
   background: white;
@@ -975,10 +976,10 @@ main {
   top: 45%;
   position: absolute;
   cursor: pointer;
-  z-index: 1500;
+  z-index: 1300;
   border-radius: 50%;
   padding: 0.7em;
-  background: white;
+  background: #fff;
 }
 @media (min-width: 800px) {
   .mobile-slider__item-prev,
