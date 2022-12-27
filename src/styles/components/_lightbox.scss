@@ -5,6 +5,9 @@
   @include lg-tablets {
     margin-right: 3em;
   }
+  .lightbox-main-img {
+    position: relative;
+  }
 }
 
 .lightbox__thumbnails {
@@ -62,6 +65,10 @@
   @include xl-screens {
     left: 40%;
     top: 11%;
+  }
+
+  .lightbox-main-img {
+    position: relative;
   }
 
   .lightbox__modal-prev,

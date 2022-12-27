@@ -138,14 +138,30 @@ function Lightbox() {
       )}
       {/* main image */}
       {currentImage && (
-        <img
-          src={currentImage}
-          onClick={() => {
-            showImage(currentImage);
-          }}
-          className="lightbox__main-img"
-          alt="large image"
-        />
+        <div className="lightbox-main-img">
+          <img
+            src={currentImage}
+            onClick={() => {
+              showImage(currentImage);
+            }}
+            className="lightbox__main-img"
+            alt="large image"
+          />
+
+          <img
+            src={prev}
+            alt="previous btn"
+            onClick={showPrev}
+            className="mobile-slider__item-prev"
+          />
+
+          <img
+            src={next}
+            alt="next btn"
+            onClick={showNext}
+            className="mobile-slider__item-next"
+          />
+        </div>
       )}
       {overlay && <Overlay overlay={overlay} />}
       {/* main image thumbnails */}

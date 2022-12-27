@@ -26,3 +26,24 @@
 .slider__gallery-item-next {
   right: -4%;
 }
+
+.mobile-slider__item-prev,
+.mobile-slider__item-next {
+  top: 45%;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1500;
+  border-radius: 50%;
+  padding: 0.7em;
+  background: white;
+  @include a.lg-tablets {
+    display: none;
+  }
+}
+
+.mobile-slider__item-prev {
+  left: 3%;
+}
+.mobile-slider__item-next {
+  right: 3%;
+}
