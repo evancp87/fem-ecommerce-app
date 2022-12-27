@@ -16,7 +16,6 @@
   );
   @include a.lg-tablets {
     margin-top: 2em;
-    justify-content: space-around;
     align-items: baseline;
     height: auto;
     width: calc(100vw - 2em);
