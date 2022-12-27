@@ -57,7 +57,10 @@ function Nav() {
             />
           </li>
           <li className="navigation__hamburger-logo">
-            <img src={require("../assets/images/logo.svg").default} />
+            <img
+              src={require("../assets/images/logo.svg").default}
+              alt="hamburger button"
+            />
           </li>
         </ul>
 

@@ -89,18 +89,20 @@ function Lightbox() {
         <div id="lightbox" className="lightbox__modal">
           <img
             id="lightbox-img"
+            alt="main image"
             className="lightbox__modal-img"
             src={imageToShow}
           />
           <img
             className="lightbox__modal-close-menu"
             src={closeMenu}
+            alt="close button"
             onClick={hideLightbox}
           />
           <div className="slider__gallery-item-prev">
             <img
               src={prev}
-              alt="prev btn"
+              alt="previous btn"
               onClick={showPrev}
               className="slider__gallery-item-img"
             />
@@ -117,19 +119,16 @@ function Lightbox() {
             {lightboxImgData.map((image, index) => (
               <img
                 key={index}
+                alt="thumbnail"
                 onClick={() => {
                   showImage(image.larger);
                   setIsActive(true);
                   setActiveIndex(index);
-
-                  // sets active thumbnail with lightboxImgdata[0].thumbnail with  hover status css- short circuit-
                 }}
-                // onClick={() => setIsActive(!isActive)}
                 src={image.thumbnail}
                 className={classnames("thumbnail-img", {
                   active: isActive && activeIndex === index,
                 })}
-                // className={isActive ? "thumbnail-img active" : "thumbnail-img"}
               />
             ))}
           </div>
@@ -145,7 +144,7 @@ function Lightbox() {
             showImage(currentImage);
           }}
           className="lightbox__main-img"
-          alt="large"
+          alt="large image"
         />
       )}
       {overlay && <Overlay overlay={overlay} />}
@@ -154,6 +153,7 @@ function Lightbox() {
         {lightboxImgData.map((image, index) => (
           <img
             key={index}
+            alt="thumbnail"
             onClick={() => {
               setCurrentImage(image.larger);
               setIsActive(true);
