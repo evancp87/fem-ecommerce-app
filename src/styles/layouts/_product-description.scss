@@ -10,10 +10,17 @@
     color: a.$orange;
     font-size: a.$rg-heading-font;
     margin-bottom: 1em;
+    @include a.lg-tablets {
+      font-size: $desktop-sm-heading-font;
+    }
     + .product_desc__product-heading {
       color: a.$black-text;
       font-size: a.$lg-heading-font-mobile;
       margin-bottom: 1em;
+      @include a.lg-tablets {
+        font-size: a.$lg-heading-font-desktop;
+        width: 102%;
+      }
     }
   }
 }
@@ -57,7 +64,7 @@
   .product-desc__price-item:last-child {
     color: a.$orange;
     background-color: #ffeee2;
-    opacity: 0.5;
+    font-weight: 800;
     padding: 0.5em;
     font-size: a.$rg-font;
     margin-left: 1em;

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const lightboxThumbnailImg = require("./assets/images/image-product-2-thumbnail.jpg");
 
 export const products = [
