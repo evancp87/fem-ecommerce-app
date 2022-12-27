@@ -11,7 +11,7 @@
     font-size: a.$rg-heading-font;
     margin-bottom: 1em;
     @include a.lg-tablets {
-      font-size: $desktop-sm-heading-font;
+      font-size: a.$desktop-sm-heading-font;
     }
   }
   .product_desc__product-heading {
