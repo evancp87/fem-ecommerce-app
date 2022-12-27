@@ -978,7 +978,7 @@ main {
 .product-desc .product-desc__product-heading {
   color: #1d2026;
   font-size: 28px;
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
 }
 @media (min-width: 800px) {
   .product-desc .product-desc__product-heading {
@@ -1066,7 +1066,7 @@ main {
 @media (min-width: 800px) {
   .product-desc__pay {
     flex-direction: row;
-    margin-top: 4em;
+    margin-top: 2em;
   }
 }
 

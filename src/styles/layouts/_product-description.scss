@@ -17,7 +17,7 @@
   .product-desc__product-heading {
     color: a.$black-text;
     font-size: a.$lg-heading-font-mobile;
-    margin-bottom: 1em;
+    margin-bottom: 0.2em;
     @include a.lg-tablets {
       font-size: a.$lg-heading-font-desktop;
       width: 102%;
@@ -95,6 +95,6 @@
   @include a.flexbox-config($flex-direction: column);
   @include a.lg-tablets {
     flex-direction: row;
-    margin-top: 4em;
+    margin-top: 2em;
   }
 }
