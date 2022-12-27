@@ -975,13 +975,13 @@ main {
     font-size: 13px;
   }
 }
-.product-desc .product_desc__product-heading {
+.product-desc .product-desc__company-heading + .product-desc__product-heading {
   color: #1d2026;
   font-size: 28px;
   margin-bottom: 1em;
 }
 @media (min-width: 800px) {
-  .product-desc .product_desc__product-heading {
+  .product-desc .product-desc__company-heading + .product-desc__product-heading {
     font-size: 44px;
     width: 102%;
   }
