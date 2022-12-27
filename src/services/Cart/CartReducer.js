@@ -46,6 +46,7 @@ const cartReducer = (state, action) => {
           ),
         };
       }
+      Storage(state.items);
 
       return {
         ...state,
