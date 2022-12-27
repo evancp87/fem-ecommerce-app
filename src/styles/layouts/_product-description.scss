@@ -13,14 +13,14 @@
     @include a.lg-tablets {
       font-size: a.$desktop-sm-heading-font;
     }
-    + .product-desc__product-heading {
-      color: a.$black-text;
-      font-size: a.$lg-heading-font-mobile;
-      margin-bottom: 1em;
-      @include a.lg-tablets {
-        font-size: a.$lg-heading-font-desktop;
-        width: 102%;
-      }
+  }
+  .product-desc__product-heading {
+    color: a.$black-text;
+    font-size: a.$lg-heading-font-mobile;
+    margin-bottom: 1em;
+    @include a.lg-tablets {
+      font-size: a.$lg-heading-font-desktop;
+      width: 102%;
     }
   }
 }
