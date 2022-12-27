@@ -2,6 +2,9 @@
 
 .lightbox {
   flex: 1;
+  @include lg-tablets {
+    margin-right: 3em;
+  }
 }
 
 .lightbox__thumbnails {

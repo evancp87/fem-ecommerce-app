@@ -500,6 +500,11 @@ main {
 .lightbox {
   flex: 1;
 }
+@media (min-width: 800px) {
+  .lightbox {
+    margin-right: 3em;
+  }
+}
 
 .lightbox__thumbnails {
   display: flex;
