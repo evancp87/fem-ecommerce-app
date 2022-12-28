@@ -10,11 +10,11 @@ function Counter() {
   return (
     <div className="counter">
       <button className="counter__btn">
-        <div className="counter__btn-inner" onClick={decrement} tabIndex="9">
+        <div className="counter__btn-inner" onClick={decrement} tabIndex="0">
           <img src={minus} alt="minus btn" />
         </div>
         <p className="counter-amount">{count}</p>
-        <div className="counter__btn-inner" onClick={increment} tabIndex="10">
+        <div className="counter__btn-inner" onClick={increment} tabIndex="0">
           <img src={plus} alt="plus btn" />
         </div>
       </button>

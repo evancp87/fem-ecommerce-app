@@ -35,7 +35,7 @@ function FilledCart() {
             src={require("../assets/images/icon-delete.svg").default}
             alt="trash icon"
             onClick={clearCart}
-            tabIndex="7"
+            tabIndex="0"
             className="cart__content-product-trash"
           />
         </div>

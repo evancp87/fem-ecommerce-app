@@ -68,26 +68,26 @@ function Nav() {
         {openSidebar && <Overlay overlay={overlay} />}
 
         <ul className="navigation-items">
-          <li className="navigation__items-item" tabIndex="1">
+          <li className="navigation__items-item" tabIndex="0">
             Collections
           </li>
-          <li className="navigation__items-item" tabIndex="2">
+          <li className="navigation__items-item" tabIndex="0">
             Men
           </li>
-          <li className="navigation__items-item" tabIndex="3">
+          <li className="navigation__items-item" tabIndex="0">
             Women
           </li>
-          <li className="navigation__items-item" tabIndex="4">
+          <li className="navigation__items-item" tabIndex="0">
             About
           </li>
-          <li className="navigation__items-item" tabIndex="5">
+          <li className="navigation__items-item" tabIndex="0">
             Contact
           </li>
         </ul>
       </div>
 
       <ul className="cart-wrapper">
-        <li className="cart-wrapper__item" tabIndex="6">
+        <li className="cart-wrapper__item" tabIndex="0">
           <img
             src={require("../assets/images/icon-cart.svg").default}
             className="cart-wrapper__item-icon"
