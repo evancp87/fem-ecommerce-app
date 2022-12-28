@@ -5,7 +5,7 @@ import { products } from "../data";
 
 function ProductDescription() {
   return (
-    <div className="product-desc">
+    <section className="product-desc">
       <h2 className="product-desc__company-heading">Sneaker Company</h2>
       <h3 className="product-desc__product-heading">
         Fall Limited Edition Sneakers
@@ -30,7 +30,7 @@ function ProductDescription() {
         <Counter products={products} />
         <AddToCartBtn products={products} />
       </div>
-    </div>
+    </section>
   );
 }
 

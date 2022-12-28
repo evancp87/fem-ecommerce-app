@@ -115,7 +115,7 @@ function Lightbox() {
   };
 
   return (
-    <div className="lightbox">
+    <section className="lightbox">
       {lightboxDisplay ? (
         <div id="lightbox" className="lightbox__modal">
           <img
@@ -213,7 +213,7 @@ function Lightbox() {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
