@@ -9,6 +9,7 @@
   .product-desc__company-heading {
     color: a.$orange;
     font-size: a.$rg-heading-font;
+    text-transform: uppercase;
     margin-bottom: 1em;
     @include a.lg-tablets {
       font-size: a.$desktop-sm-heading-font;
@@ -46,6 +47,10 @@
   max-width: 80%;
   font-weight: 400;
   color: a.$light-gray;
+  line-height: 1.5em;
+  @include a.lg-tablets {
+    max-width: 100%;
+  }
 }
 
 .product-desc__price {

@@ -1004,6 +1004,7 @@ main {
 .product-desc .product-desc__company-heading {
   color: #ff7e1b;
   font-size: 12px;
+  text-transform: uppercase;
   margin-bottom: 1em;
 }
 @media (min-width: 800px) {
@@ -1045,6 +1046,12 @@ main {
   max-width: 80%;
   font-weight: 400;
   color: #69707d;
+  line-height: 1.5em;
+}
+@media (min-width: 800px) {
+  .product-desc__blurb {
+    max-width: 100%;
+  }
 }
 
 .product-desc__price {
