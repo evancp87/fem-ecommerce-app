@@ -49,12 +49,12 @@ function Lightbox() {
     setOverlay(false);
   };
 
+  const carouselData = lightboxImgData.map((i) => i.larger);
+
   // shows next image in lightbox modal
   const showNext = (e) => {
     e.stopPropagation();
-    let currentIndex = lightboxImgData
-      .map((i) => i.larger)
-      .indexOf(imageToShow);
+    let currentIndex = carouselData.indexOf(imageToShow);
     console.log(currentIndex);
     if (currentIndex >= lightboxImgData.length - 1) {
       setLightboxDisplay(false);
@@ -69,9 +69,7 @@ function Lightbox() {
   // shows previous image in lightbox modal
   const showPrev = (e) => {
     e.stopPropagation();
-    let currentIndex = lightboxImgData
-      .map((i) => i.larger)
-      .indexOf(imageToShow);
+    let currentIndex = carouselData.indexOf(imageToShow);
     console.log(currentIndex);
     if (currentIndex <= 0) {
       setLightboxDisplay(false);
@@ -85,35 +83,35 @@ function Lightbox() {
 
   const showNextMobile = (e) => {
     e.stopPropagation();
-    let currentIndex = lightboxImgData
-      .map((i) => i.larger)
-      .indexOf(imageToShow);
+    let currentIndex = carouselData.indexOf(currentImage);
     console.log(currentIndex);
-    if (currentIndex >= lightboxImgData.length - 1) {
-      setLightboxDisplay(false);
-      setOverlay(false);
+    let nextImage;
+    if (currentIndex + 1 < lightboxImgData.length) {
+      // check if the current index is not the last index
+      // if not, set the next image to be the one at the next index
+      nextImage = lightboxImgData[currentIndex + 1].larger;
     } else {
-      let nextImage = lightboxImgData[currentIndex + 1];
-      showImage(nextImage.larger);
-      setActiveIndex(currentIndex + 1);
+      // if the current index is the last index, set the next image to be the first image
+      nextImage = lightboxImgData[0].larger;
     }
+    setCurrentImage(nextImage);
   };
 
   // shows previous image in lightbox modal
   const showPrevMobile = (e) => {
     e.stopPropagation();
-    let currentIndex = lightboxImgData
-      .map((i) => i.larger)
-      .indexOf(imageToShow);
+    let currentIndex = carouselData.indexOf(currentImage);
     console.log(currentIndex);
-    if (currentIndex <= 0) {
-      setLightboxDisplay(false);
-      setOverlay(false);
-    } else {
-      let nextImage = lightboxImgData[currentIndex - 1];
-      showImage(nextImage.larger);
-      setActiveIndex(currentIndex - 1);
+    let nextImage;
+    if (currentIndex > 0) {
+      // check if the current index is not the last index
+      // if not, set the next image to be the one at the next index
+      nextImage = lightboxImgData[currentIndex - 1].larger;
+    } else if (currentIndex === 0) {
+      // if the current index is the first index, set the next image to be the first image
+      nextImage = lightboxImgData[lightboxImgData.length - 1].larger;
     }
+    setCurrentImage(nextImage);
   };
 
   return (
